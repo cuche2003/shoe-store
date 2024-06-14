@@ -1,0 +1,10 @@
+Bundle-Name: servicebuilder-api
+Bundle-SymbolicName: com.liferay.shoestore.servicebuilder.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.shoestore.servicebuilder.exception,\
+	com.liferay.shoestore.servicebuilder.model,\
+	com.liferay.shoestore.servicebuilder.service,\
+	com.liferay.shoestore.servicebuilder.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../servicebuilder-service/service.xml
