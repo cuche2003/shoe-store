@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.servicebuilder.model.Shoe">
+		<field name="uuid" type="String" />
+		<field name="shoeId" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="brandId" type="String" />
+		<field name="typeId" type="String" />
+		<field name="shoeModel" type="String" />
+		<field name="gender" type="String" />
+		<field name="size" type="double" />
+		<field name="price" type="double" />
+	</model>
+</model-hints>

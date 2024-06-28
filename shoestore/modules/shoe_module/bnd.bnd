@@ -1,0 +1,4 @@
+Bundle-Name: shoe_module
+Bundle-SymbolicName: com.j2ee.test.shoemodule
+Bundle-Version: 1.0.0
+Export-Package: com.j2ee.test.shoemodule.constants

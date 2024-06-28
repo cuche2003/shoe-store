@@ -1,0 +1,1 @@
+create index IX_AE14AFD5 on ShoeServiceBuilder_Shoe (uuid_[$COLUMN_LENGTH:75$]);
