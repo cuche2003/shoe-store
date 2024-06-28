@@ -30,6 +30,10 @@ public class ShoeServiceImpl extends ShoeServiceBaseImpl {
 		return shoeLocalService.addShoe(brandId, typeId, shoeModel, gender, size, price);
 	}
 	
+	public Shoe updateShoe(Shoe shoe) {
+		return shoeLocalService.updateShoe(shoe);
+	}
+	
 	public Shoe getShoeById(String shoeId) throws PortalException {
 		return shoeLocalService.getShoe(shoeId);
 	}

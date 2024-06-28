@@ -62,4 +62,6 @@ public interface ShoeService extends BaseService {
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getShoesCount();
 
+	public Shoe updateShoe(Shoe shoe);
+
 }

@@ -64,6 +64,13 @@ public class ShoeServiceWrapper
 	}
 
 	@Override
+	public com.liferay.servicebuilder.model.Shoe updateShoe(
+		com.liferay.servicebuilder.model.Shoe shoe) {
+
+		return _shoeService.updateShoe(shoe);
+	}
+
+	@Override
 	public ShoeService getWrappedService() {
 		return _shoeService;
 	}

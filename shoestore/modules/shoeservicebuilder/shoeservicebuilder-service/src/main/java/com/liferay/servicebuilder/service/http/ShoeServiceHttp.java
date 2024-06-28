@@ -73,6 +73,38 @@ public class ShoeServiceHttp {
 		}
 	}
 
+	public static com.liferay.servicebuilder.model.Shoe updateShoe(
+		HttpPrincipal httpPrincipal,
+		com.liferay.servicebuilder.model.Shoe shoe) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ShoeServiceUtil.class, "updateShoe",
+				_updateShoeParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, shoe);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.liferay.servicebuilder.model.Shoe)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	public static com.liferay.servicebuilder.model.Shoe getShoeById(
 			HttpPrincipal httpPrincipal, String shoeId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -80,7 +112,7 @@ public class ShoeServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(
 				ShoeServiceUtil.class, "getShoeById",
-				_getShoeByIdParameterTypes1);
+				_getShoeByIdParameterTypes2);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, shoeId);
 
@@ -117,7 +149,7 @@ public class ShoeServiceHttp {
 
 		try {
 			MethodKey methodKey = new MethodKey(
-				ShoeServiceUtil.class, "getShoes", _getShoesParameterTypes2);
+				ShoeServiceUtil.class, "getShoes", _getShoesParameterTypes3);
 
 			MethodHandler methodHandler = new MethodHandler(
 				methodKey, startIndex, lastIndex);
@@ -148,7 +180,7 @@ public class ShoeServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(
 				ShoeServiceUtil.class, "getShoesCount",
-				_getShoesCountParameterTypes3);
+				_getShoesCountParameterTypes4);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey);
 
@@ -179,13 +211,16 @@ public class ShoeServiceHttp {
 		String.class, String.class, String.class, String.class, double.class,
 		double.class
 	};
-	private static final Class<?>[] _getShoeByIdParameterTypes1 = new Class[] {
+	private static final Class<?>[] _updateShoeParameterTypes1 = new Class[] {
+		com.liferay.servicebuilder.model.Shoe.class
+	};
+	private static final Class<?>[] _getShoeByIdParameterTypes2 = new Class[] {
 		String.class
 	};
-	private static final Class<?>[] _getShoesParameterTypes2 = new Class[] {
+	private static final Class<?>[] _getShoesParameterTypes3 = new Class[] {
 		int.class, int.class
 	};
-	private static final Class<?>[] _getShoesCountParameterTypes3 =
+	private static final Class<?>[] _getShoesCountParameterTypes4 =
 		new Class[] {};
 
 }

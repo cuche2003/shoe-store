@@ -58,6 +58,10 @@ public class ShoeServiceUtil {
 		return getService().getShoesCount();
 	}
 
+	public static Shoe updateShoe(Shoe shoe) {
+		return getService().updateShoe(shoe);
+	}
+
 	public static ShoeService getService() {
 		return _service;
 	}

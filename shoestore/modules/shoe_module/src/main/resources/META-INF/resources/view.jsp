@@ -7,8 +7,8 @@
 	helloworld
 	<b><liferay-ui:message key="shoemodule.caption"/></b>
 </p>
-<portlet:renderURL var="createEditRender">
-	<portlet:param name="mvcRenderCommandName" value="/create/edit"/>
+<portlet:renderURL var="createShoe">
+	<portlet:param name="mvcRenderCommandName" value="/create"/>
 </portlet:renderURL>
 
 <liferay-ui:search-container delta="10"
@@ -28,15 +28,15 @@
 			<liferay-ui:search-container-column-text property="price" />
 			
 			<liferay-ui:search-container-column-text>
-				<portlet:renderURL var="editRender">
-					<portlet:param name="mvcRenderCommandName" value="/create/edit"/>
+				<portlet:renderURL var="updateShoe">
+					<portlet:param name="mvcRenderCommandName" value="/update"/>
 					<portlet:param name="shoeId" value="${entry.shoeId}" />
 				</portlet:renderURL>
-				<a href="${editRender}">Edit</a>
+				<a href="${updateShoe}">Edit</a>
 			</liferay-ui:search-container-column-text>
 			
 		</liferay-ui:search-container-row>		
 	<liferay-ui:search-iterator />
 </liferay-ui:search-container>
 
-<a href="${createEditRender}">Create Shoe</a>
+<a href="${createRender}">Create Shoe</a>

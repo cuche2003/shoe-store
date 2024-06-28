@@ -17,11 +17,11 @@ import org.osgi.service.component.annotations.Reference;
 		immediate = true,
 		property = {
 				"javax.portlet.name=" + ShoeModulePortletKeys.SHOEMODULE,
-				"mvc.command.name=/create/edit"
+				"mvc.command.name=/create"
 		}
 )
 
-public class CreateEditRenderMvcCommand implements MVCRenderCommand {
+public class CreateShoeRenderMvcCommand implements MVCRenderCommand {
 	@Override
 	public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
 		String shoeId = ParamUtil.getString(renderRequest, "shoeId", "");
@@ -34,7 +34,7 @@ public class CreateEditRenderMvcCommand implements MVCRenderCommand {
 			}
 		}
 		
-		return "/edit.jsp";
+		return "/create.jsp";
 	}
 	
 	private ShoeService _shoeService;

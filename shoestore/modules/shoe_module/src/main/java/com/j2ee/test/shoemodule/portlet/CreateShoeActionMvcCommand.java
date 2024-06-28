@@ -16,16 +16,16 @@ import org.osgi.service.component.annotations.Reference;
 		immediate = true,
 		property = {
 				"javax.portlet.name=" + ShoeModulePortletKeys.SHOEMODULE,
-				"mvc.command.name=saveShoe"
+				"mvc.command.name=createShoe"
 		},
 		service = MVCActionCommand.class
 )
 
-public class SaveActionMvcCommand extends BaseMVCActionCommand {
+public class CreateShoeActionMvcCommand extends BaseMVCActionCommand {
 
 	@Override
 	protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
-		System.out.println("Shoe saved!");
+		System.out.println("Shoe created!");
 		
 		String shoeModel = ParamUtil.get(actionRequest, "shoeModel", "");
 		String gender = ParamUtil.get(actionRequest, "gender", "Men");
@@ -34,7 +34,6 @@ public class SaveActionMvcCommand extends BaseMVCActionCommand {
 		String typeId = ParamUtil.get(actionRequest, "typeId", "");
 		double price = ParamUtil.get(actionRequest, "price", 0);
 		
-		System.out.println(shoeModel + gender + size + brandId + typeId + price);
 		_shoeService.addShoe(brandId, typeId, shoeModel, gender, size, price);
 	}
 	
