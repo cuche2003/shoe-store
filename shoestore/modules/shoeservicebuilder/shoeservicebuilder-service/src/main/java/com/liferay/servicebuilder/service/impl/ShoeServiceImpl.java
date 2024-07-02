@@ -6,8 +6,13 @@
 package com.liferay.servicebuilder.service.impl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.servicebuilder.model.Brand;
 import com.liferay.servicebuilder.model.Shoe;
+import com.liferay.servicebuilder.service.BrandServiceUtil;
 import com.liferay.servicebuilder.service.base.ShoeServiceBaseImpl;
 
 import java.util.ArrayList;
@@ -34,6 +39,10 @@ public class ShoeServiceImpl extends ShoeServiceBaseImpl {
 		return shoeLocalService.updateShoe(shoe);
 	}
 	
+	public Shoe deleteShoe(String shoeId) throws PortalException {
+		return shoeLocalService.deleteShoe(shoeId);
+	}
+	
 	public Shoe getShoeById(String shoeId) throws PortalException {
 		return shoeLocalService.getShoe(shoeId);
 	}
@@ -46,5 +55,13 @@ public class ShoeServiceImpl extends ShoeServiceBaseImpl {
 	
 	public int getShoesCount() {
 		return shoeLocalService.getShoesCount();
+	}
+	
+	public void deleteShoesByBrandId(String brandId) {
+		shoeLocalService.deleteShoesByBrandId(brandId);
+	}
+	
+	public void deleteShoesByTypeId(String typeId) {
+		shoeLocalService.deleteShoesByTypeId(typeId);
 	}
 }

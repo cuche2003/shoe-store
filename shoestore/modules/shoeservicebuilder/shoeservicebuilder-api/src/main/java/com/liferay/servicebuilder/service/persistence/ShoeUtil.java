@@ -268,6 +268,331 @@ public class ShoeUtil {
 	}
 
 	/**
+	 * Returns all the shoes where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @return the matching shoes
+	 */
+	public static List<Shoe> findByBrandId(String brandId) {
+		return getPersistence().findByBrandId(brandId);
+	}
+
+	/**
+	 * Returns a range of all the shoes where brandId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param brandId the brand ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @return the range of matching shoes
+	 */
+	public static List<Shoe> findByBrandId(String brandId, int start, int end) {
+		return getPersistence().findByBrandId(brandId, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the shoes where brandId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param brandId the brand ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching shoes
+	 */
+	public static List<Shoe> findByBrandId(
+		String brandId, int start, int end,
+		OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().findByBrandId(
+			brandId, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the shoes where brandId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param brandId the brand ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching shoes
+	 */
+	public static List<Shoe> findByBrandId(
+		String brandId, int start, int end,
+		OrderByComparator<Shoe> orderByComparator, boolean useFinderCache) {
+
+		return getPersistence().findByBrandId(
+			brandId, start, end, orderByComparator, useFinderCache);
+	}
+
+	/**
+	 * Returns the first shoe in the ordered set where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching shoe
+	 * @throws NoSuchShoeException if a matching shoe could not be found
+	 */
+	public static Shoe findByBrandId_First(
+			String brandId, OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByBrandId_First(brandId, orderByComparator);
+	}
+
+	/**
+	 * Returns the first shoe in the ordered set where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching shoe, or <code>null</code> if a matching shoe could not be found
+	 */
+	public static Shoe fetchByBrandId_First(
+		String brandId, OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().fetchByBrandId_First(
+			brandId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last shoe in the ordered set where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching shoe
+	 * @throws NoSuchShoeException if a matching shoe could not be found
+	 */
+	public static Shoe findByBrandId_Last(
+			String brandId, OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByBrandId_Last(brandId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last shoe in the ordered set where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching shoe, or <code>null</code> if a matching shoe could not be found
+	 */
+	public static Shoe fetchByBrandId_Last(
+		String brandId, OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().fetchByBrandId_Last(brandId, orderByComparator);
+	}
+
+	/**
+	 * Returns the shoes before and after the current shoe in the ordered set where brandId = &#63;.
+	 *
+	 * @param shoeId the primary key of the current shoe
+	 * @param brandId the brand ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next shoe
+	 * @throws NoSuchShoeException if a shoe with the primary key could not be found
+	 */
+	public static Shoe[] findByBrandId_PrevAndNext(
+			String shoeId, String brandId,
+			OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByBrandId_PrevAndNext(
+			shoeId, brandId, orderByComparator);
+	}
+
+	/**
+	 * Removes all the shoes where brandId = &#63; from the database.
+	 *
+	 * @param brandId the brand ID
+	 */
+	public static void removeByBrandId(String brandId) {
+		getPersistence().removeByBrandId(brandId);
+	}
+
+	/**
+	 * Returns the number of shoes where brandId = &#63;.
+	 *
+	 * @param brandId the brand ID
+	 * @return the number of matching shoes
+	 */
+	public static int countByBrandId(String brandId) {
+		return getPersistence().countByBrandId(brandId);
+	}
+
+	/**
+	 * Returns all the shoes where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @return the matching shoes
+	 */
+	public static List<Shoe> findByTypeId(String typeId) {
+		return getPersistence().findByTypeId(typeId);
+	}
+
+	/**
+	 * Returns a range of all the shoes where typeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param typeId the type ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @return the range of matching shoes
+	 */
+	public static List<Shoe> findByTypeId(String typeId, int start, int end) {
+		return getPersistence().findByTypeId(typeId, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the shoes where typeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param typeId the type ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching shoes
+	 */
+	public static List<Shoe> findByTypeId(
+		String typeId, int start, int end,
+		OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().findByTypeId(
+			typeId, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the shoes where typeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ShoeModelImpl</code>.
+	 * </p>
+	 *
+	 * @param typeId the type ID
+	 * @param start the lower bound of the range of shoes
+	 * @param end the upper bound of the range of shoes (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching shoes
+	 */
+	public static List<Shoe> findByTypeId(
+		String typeId, int start, int end,
+		OrderByComparator<Shoe> orderByComparator, boolean useFinderCache) {
+
+		return getPersistence().findByTypeId(
+			typeId, start, end, orderByComparator, useFinderCache);
+	}
+
+	/**
+	 * Returns the first shoe in the ordered set where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching shoe
+	 * @throws NoSuchShoeException if a matching shoe could not be found
+	 */
+	public static Shoe findByTypeId_First(
+			String typeId, OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByTypeId_First(typeId, orderByComparator);
+	}
+
+	/**
+	 * Returns the first shoe in the ordered set where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching shoe, or <code>null</code> if a matching shoe could not be found
+	 */
+	public static Shoe fetchByTypeId_First(
+		String typeId, OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().fetchByTypeId_First(typeId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last shoe in the ordered set where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching shoe
+	 * @throws NoSuchShoeException if a matching shoe could not be found
+	 */
+	public static Shoe findByTypeId_Last(
+			String typeId, OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByTypeId_Last(typeId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last shoe in the ordered set where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching shoe, or <code>null</code> if a matching shoe could not be found
+	 */
+	public static Shoe fetchByTypeId_Last(
+		String typeId, OrderByComparator<Shoe> orderByComparator) {
+
+		return getPersistence().fetchByTypeId_Last(typeId, orderByComparator);
+	}
+
+	/**
+	 * Returns the shoes before and after the current shoe in the ordered set where typeId = &#63;.
+	 *
+	 * @param shoeId the primary key of the current shoe
+	 * @param typeId the type ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next shoe
+	 * @throws NoSuchShoeException if a shoe with the primary key could not be found
+	 */
+	public static Shoe[] findByTypeId_PrevAndNext(
+			String shoeId, String typeId,
+			OrderByComparator<Shoe> orderByComparator)
+		throws com.liferay.servicebuilder.exception.NoSuchShoeException {
+
+		return getPersistence().findByTypeId_PrevAndNext(
+			shoeId, typeId, orderByComparator);
+	}
+
+	/**
+	 * Removes all the shoes where typeId = &#63; from the database.
+	 *
+	 * @param typeId the type ID
+	 */
+	public static void removeByTypeId(String typeId) {
+		getPersistence().removeByTypeId(typeId);
+	}
+
+	/**
+	 * Returns the number of shoes where typeId = &#63;.
+	 *
+	 * @param typeId the type ID
+	 * @return the number of matching shoes
+	 */
+	public static int countByTypeId(String typeId) {
+		return getPersistence().countByTypeId(typeId);
+	}
+
+	/**
 	 * Caches the shoe in the entity cache if it is enabled.
 	 *
 	 * @param shoe the shoe

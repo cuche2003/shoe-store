@@ -37,6 +37,18 @@ public class ShoeServiceUtil {
 			brandId, typeId, shoeModel, gender, size, price);
 	}
 
+	public static Shoe deleteShoe(String shoeId) throws PortalException {
+		return getService().deleteShoe(shoeId);
+	}
+
+	public static void deleteShoesByBrandId(String brandId) {
+		getService().deleteShoesByBrandId(brandId);
+	}
+
+	public static void deleteShoesByTypeId(String typeId) {
+		getService().deleteShoesByTypeId(typeId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

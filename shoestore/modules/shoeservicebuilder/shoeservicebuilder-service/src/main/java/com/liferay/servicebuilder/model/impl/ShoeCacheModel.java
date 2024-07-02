@@ -61,10 +61,6 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
-		sb.append(", brandId=");
-		sb.append(brandId);
-		sb.append(", typeId=");
-		sb.append(typeId);
 		sb.append(", shoeModel=");
 		sb.append(shoeModel);
 		sb.append(", gender=");
@@ -73,6 +69,10 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		sb.append(size);
 		sb.append(", price=");
 		sb.append(price);
+		sb.append(", brandId=");
+		sb.append(brandId);
+		sb.append(", typeId=");
+		sb.append(typeId);
 		sb.append("}");
 
 		return sb.toString();
@@ -110,20 +110,6 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 			shoeImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		if (brandId == null) {
-			shoeImpl.setBrandId("");
-		}
-		else {
-			shoeImpl.setBrandId(brandId);
-		}
-
-		if (typeId == null) {
-			shoeImpl.setTypeId("");
-		}
-		else {
-			shoeImpl.setTypeId(typeId);
-		}
-
 		if (shoeModel == null) {
 			shoeImpl.setShoeModel("");
 		}
@@ -141,6 +127,20 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		shoeImpl.setSize(size);
 		shoeImpl.setPrice(price);
 
+		if (brandId == null) {
+			shoeImpl.setBrandId("");
+		}
+		else {
+			shoeImpl.setBrandId(brandId);
+		}
+
+		if (typeId == null) {
+			shoeImpl.setTypeId("");
+		}
+		else {
+			shoeImpl.setTypeId(typeId);
+		}
+
 		shoeImpl.resetOriginalValues();
 
 		return shoeImpl;
@@ -152,14 +152,14 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		shoeId = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		brandId = objectInput.readUTF();
-		typeId = objectInput.readUTF();
 		shoeModel = objectInput.readUTF();
 		gender = objectInput.readUTF();
 
 		size = objectInput.readDouble();
 
 		price = objectInput.readDouble();
+		brandId = objectInput.readUTF();
+		typeId = objectInput.readUTF();
 	}
 
 	@Override
@@ -181,20 +181,6 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
-		if (brandId == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(brandId);
-		}
-
-		if (typeId == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(typeId);
-		}
-
 		if (shoeModel == null) {
 			objectOutput.writeUTF("");
 		}
@@ -212,17 +198,31 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		objectOutput.writeDouble(size);
 
 		objectOutput.writeDouble(price);
+
+		if (brandId == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(brandId);
+		}
+
+		if (typeId == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(typeId);
+		}
 	}
 
 	public String uuid;
 	public String shoeId;
 	public long createDate;
 	public long modifiedDate;
-	public String brandId;
-	public String typeId;
 	public String shoeModel;
 	public String gender;
 	public double size;
 	public double price;
+	public String brandId;
+	public String typeId;
 
 }

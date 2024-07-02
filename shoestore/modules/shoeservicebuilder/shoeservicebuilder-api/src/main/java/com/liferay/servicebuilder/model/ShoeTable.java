@@ -31,10 +31,6 @@ public class ShoeTable extends BaseTable<ShoeTable> {
 		"createDate", Date.class, Types.TIMESTAMP, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, Date> modifiedDate = createColumn(
 		"modifiedDate", Date.class, Types.TIMESTAMP, Column.FLAG_DEFAULT);
-	public final Column<ShoeTable, String> brandId = createColumn(
-		"brandId", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
-	public final Column<ShoeTable, String> typeId = createColumn(
-		"typeId", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, String> shoeModel = createColumn(
 		"shoeModel", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, String> gender = createColumn(
@@ -43,6 +39,10 @@ public class ShoeTable extends BaseTable<ShoeTable> {
 		"size_", Double.class, Types.DOUBLE, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, Double> price = createColumn(
 		"price", Double.class, Types.DOUBLE, Column.FLAG_DEFAULT);
+	public final Column<ShoeTable, String> brandId = createColumn(
+		"brandId", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
+	public final Column<ShoeTable, String> typeId = createColumn(
+		"typeId", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 
 	private ShoeTable() {
 		super("ShoeServiceBuilder_Shoe", ShoeTable::new);

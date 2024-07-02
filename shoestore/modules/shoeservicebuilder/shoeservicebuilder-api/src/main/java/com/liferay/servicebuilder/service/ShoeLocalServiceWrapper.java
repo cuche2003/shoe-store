@@ -121,6 +121,16 @@ public class ShoeLocalServiceWrapper
 	}
 
 	@Override
+	public void deleteShoesByBrandId(String brandId) {
+		_shoeLocalService.deleteShoesByBrandId(brandId);
+	}
+
+	@Override
+	public void deleteShoesByTypeId(String typeId) {
+		_shoeLocalService.deleteShoesByTypeId(typeId);
+	}
+
+	@Override
 	public <T> T dslQuery(com.liferay.petra.sql.dsl.query.DSLQuery dslQuery) {
 		return _shoeLocalService.dslQuery(dslQuery);
 	}
@@ -287,6 +297,15 @@ public class ShoeLocalServiceWrapper
 	@Override
 	public int getShoesCount() {
 		return _shoeLocalService.getShoesCount();
+	}
+
+	@Override
+	public java.util.List<com.liferay.servicebuilder.model.Shoe> getShoesSorted(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator
+			<com.liferay.servicebuilder.model.Shoe> obc) {
+
+		return _shoeLocalService.getShoesSorted(start, end, obc);
 	}
 
 	/**

@@ -5,8 +5,20 @@
 
 package com.liferay.servicebuilder.model.impl;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.servicebuilder.model.Brand;
+import com.liferay.servicebuilder.model.Type;
+import com.liferay.servicebuilder.service.BrandServiceUtil;
+import com.liferay.servicebuilder.service.TypeServiceUtil;
+
 /**
  * @author Brian Wing Shun Chan
  */
 public class ShoeImpl extends ShoeBaseImpl {
+	public Brand getBrand() throws PortalException {
+		return BrandServiceUtil.getBrandById(getBrandId());
+	}
+	public Type getType() throws PortalException {
+		return TypeServiceUtil.getTypeById(getTypeId());
+	}
 }

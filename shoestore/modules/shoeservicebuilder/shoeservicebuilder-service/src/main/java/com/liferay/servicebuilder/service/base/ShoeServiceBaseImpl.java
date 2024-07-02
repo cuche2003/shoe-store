@@ -19,7 +19,9 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.servicebuilder.model.Shoe;
 import com.liferay.servicebuilder.service.ShoeService;
 import com.liferay.servicebuilder.service.ShoeServiceUtil;
+import com.liferay.servicebuilder.service.persistence.BrandPersistence;
 import com.liferay.servicebuilder.service.persistence.ShoePersistence;
+import com.liferay.servicebuilder.service.persistence.TypePersistence;
 
 import javax.sql.DataSource;
 
@@ -108,6 +110,9 @@ public abstract class ShoeServiceBaseImpl
 	}
 
 	@Reference
+	protected BrandPersistence brandPersistence;
+
+	@Reference
 	protected com.liferay.servicebuilder.service.ShoeLocalService
 		shoeLocalService;
 
@@ -115,6 +120,9 @@ public abstract class ShoeServiceBaseImpl
 
 	@Reference
 	protected ShoePersistence shoePersistence;
+
+	@Reference
+	protected TypePersistence typePersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

@@ -117,6 +117,10 @@ public interface ShoeLocalService
 	@Indexable(type = IndexableType.DELETE)
 	public Shoe deleteShoe(String shoeId) throws PortalException;
 
+	public void deleteShoesByBrandId(String brandId);
+
+	public void deleteShoesByTypeId(String typeId);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public <T> T dslQuery(DSLQuery dslQuery);
 
@@ -238,6 +242,10 @@ public interface ShoeLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getShoesCount();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Shoe> getShoesSorted(
+		int start, int end, OrderByComparator<Shoe> obc);
 
 	/**
 	 * Updates the shoe in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

@@ -34,6 +34,23 @@ public class ShoeServiceWrapper
 			brandId, typeId, shoeModel, gender, size, price);
 	}
 
+	@Override
+	public com.liferay.servicebuilder.model.Shoe deleteShoe(String shoeId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _shoeService.deleteShoe(shoeId);
+	}
+
+	@Override
+	public void deleteShoesByBrandId(String brandId) {
+		_shoeService.deleteShoesByBrandId(brandId);
+	}
+
+	@Override
+	public void deleteShoesByTypeId(String typeId) {
+		_shoeService.deleteShoesByTypeId(typeId);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

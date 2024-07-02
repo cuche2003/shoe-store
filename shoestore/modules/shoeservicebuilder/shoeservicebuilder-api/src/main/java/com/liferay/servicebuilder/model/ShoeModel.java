@@ -105,36 +105,6 @@ public interface ShoeModel extends BaseModel<Shoe> {
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
-	 * Returns the brand ID of this shoe.
-	 *
-	 * @return the brand ID of this shoe
-	 */
-	@AutoEscape
-	public String getBrandId();
-
-	/**
-	 * Sets the brand ID of this shoe.
-	 *
-	 * @param brandId the brand ID of this shoe
-	 */
-	public void setBrandId(String brandId);
-
-	/**
-	 * Returns the type ID of this shoe.
-	 *
-	 * @return the type ID of this shoe
-	 */
-	@AutoEscape
-	public String getTypeId();
-
-	/**
-	 * Sets the type ID of this shoe.
-	 *
-	 * @param typeId the type ID of this shoe
-	 */
-	public void setTypeId(String typeId);
-
-	/**
 	 * Returns the shoe model of this shoe.
 	 *
 	 * @return the shoe model of this shoe
@@ -191,6 +161,36 @@ public interface ShoeModel extends BaseModel<Shoe> {
 	 * @param price the price of this shoe
 	 */
 	public void setPrice(double price);
+
+	/**
+	 * Returns the brand ID of this shoe.
+	 *
+	 * @return the brand ID of this shoe
+	 */
+	@AutoEscape
+	public String getBrandId();
+
+	/**
+	 * Sets the brand ID of this shoe.
+	 *
+	 * @param brandId the brand ID of this shoe
+	 */
+	public void setBrandId(String brandId);
+
+	/**
+	 * Returns the type ID of this shoe.
+	 *
+	 * @return the type ID of this shoe
+	 */
+	@AutoEscape
+	public String getTypeId();
+
+	/**
+	 * Sets the type ID of this shoe.
+	 *
+	 * @param typeId the type ID of this shoe
+	 */
+	public void setTypeId(String typeId);
 
 	@Override
 	public Shoe cloneWithOriginalValues();

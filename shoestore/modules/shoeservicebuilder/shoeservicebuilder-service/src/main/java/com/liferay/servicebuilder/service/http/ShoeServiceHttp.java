@@ -105,6 +105,45 @@ public class ShoeServiceHttp {
 		}
 	}
 
+	public static com.liferay.servicebuilder.model.Shoe deleteShoe(
+			HttpPrincipal httpPrincipal, String shoeId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ShoeServiceUtil.class, "deleteShoe",
+				_deleteShoeParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, shoeId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (com.liferay.servicebuilder.model.Shoe)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	public static com.liferay.servicebuilder.model.Shoe getShoeById(
 			HttpPrincipal httpPrincipal, String shoeId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -112,7 +151,7 @@ public class ShoeServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(
 				ShoeServiceUtil.class, "getShoeById",
-				_getShoeByIdParameterTypes2);
+				_getShoeByIdParameterTypes3);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, shoeId);
 
@@ -149,7 +188,7 @@ public class ShoeServiceHttp {
 
 		try {
 			MethodKey methodKey = new MethodKey(
-				ShoeServiceUtil.class, "getShoes", _getShoesParameterTypes3);
+				ShoeServiceUtil.class, "getShoes", _getShoesParameterTypes4);
 
 			MethodHandler methodHandler = new MethodHandler(
 				methodKey, startIndex, lastIndex);
@@ -180,7 +219,7 @@ public class ShoeServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(
 				ShoeServiceUtil.class, "getShoesCount",
-				_getShoesCountParameterTypes4);
+				_getShoesCountParameterTypes5);
 
 			MethodHandler methodHandler = new MethodHandler(methodKey);
 
@@ -205,6 +244,60 @@ public class ShoeServiceHttp {
 		}
 	}
 
+	public static void deleteShoesByBrandId(
+		HttpPrincipal httpPrincipal, String brandId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ShoeServiceUtil.class, "deleteShoesByBrandId",
+				_deleteShoesByBrandIdParameterTypes6);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, brandId);
+
+			try {
+				TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static void deleteShoesByTypeId(
+		HttpPrincipal httpPrincipal, String typeId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				ShoeServiceUtil.class, "deleteShoesByTypeId",
+				_deleteShoesByTypeIdParameterTypes7);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey, typeId);
+
+			try {
+				TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(ShoeServiceHttp.class);
 
 	private static final Class<?>[] _addShoeParameterTypes0 = new Class[] {
@@ -214,13 +307,20 @@ public class ShoeServiceHttp {
 	private static final Class<?>[] _updateShoeParameterTypes1 = new Class[] {
 		com.liferay.servicebuilder.model.Shoe.class
 	};
-	private static final Class<?>[] _getShoeByIdParameterTypes2 = new Class[] {
+	private static final Class<?>[] _deleteShoeParameterTypes2 = new Class[] {
 		String.class
 	};
-	private static final Class<?>[] _getShoesParameterTypes3 = new Class[] {
+	private static final Class<?>[] _getShoeByIdParameterTypes3 = new Class[] {
+		String.class
+	};
+	private static final Class<?>[] _getShoesParameterTypes4 = new Class[] {
 		int.class, int.class
 	};
-	private static final Class<?>[] _getShoesCountParameterTypes4 =
+	private static final Class<?>[] _getShoesCountParameterTypes5 =
 		new Class[] {};
+	private static final Class<?>[] _deleteShoesByBrandIdParameterTypes6 =
+		new Class[] {String.class};
+	private static final Class<?>[] _deleteShoesByTypeIdParameterTypes7 =
+		new Class[] {String.class};
 
 }

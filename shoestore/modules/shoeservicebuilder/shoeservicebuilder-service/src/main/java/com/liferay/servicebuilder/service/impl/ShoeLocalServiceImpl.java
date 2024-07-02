@@ -5,6 +5,7 @@
 
 package com.liferay.servicebuilder.service.impl;
 
+import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.aop.AopService;
 import com.liferay.servicebuilder.model.Shoe;
 import com.liferay.servicebuilder.model.impl.ShoeImpl;
@@ -40,5 +41,17 @@ public class ShoeLocalServiceImpl extends ShoeLocalServiceBaseImpl {
 		shoeLocalService.addShoe(shoe);
 		
 		return shoe;
+	}
+	
+	public List<Shoe> getShoesSorted(int start, int end, OrderByComparator<Shoe> obc) {
+		return shoePersistence.findAll(start, end, obc);
+	}
+	
+	public void deleteShoesByBrandId(String brandId) {
+		shoePersistence.removeByBrandId(brandId);
+	}
+	
+	public void deleteShoesByTypeId(String typeId) {
+		shoePersistence.removeByTypeId(typeId);
 	}
 }

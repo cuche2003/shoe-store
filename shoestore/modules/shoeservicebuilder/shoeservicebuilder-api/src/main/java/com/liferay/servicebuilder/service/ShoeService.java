@@ -46,6 +46,12 @@ public interface ShoeService extends BaseService {
 		String brandId, String typeId, String shoeModel, String gender,
 		double size, double price);
 
+	public Shoe deleteShoe(String shoeId) throws PortalException;
+
+	public void deleteShoesByBrandId(String brandId);
+
+	public void deleteShoesByTypeId(String typeId);
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

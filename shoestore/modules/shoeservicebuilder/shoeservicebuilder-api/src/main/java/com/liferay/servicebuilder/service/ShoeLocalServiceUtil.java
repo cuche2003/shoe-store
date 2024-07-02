@@ -117,6 +117,14 @@ public class ShoeLocalServiceUtil {
 		return getService().deleteShoe(shoeId);
 	}
 
+	public static void deleteShoesByBrandId(String brandId) {
+		getService().deleteShoesByBrandId(brandId);
+	}
+
+	public static void deleteShoesByTypeId(String typeId) {
+		getService().deleteShoesByTypeId(typeId);
+	}
+
 	public static <T> T dslQuery(DSLQuery dslQuery) {
 		return getService().dslQuery(dslQuery);
 	}
@@ -257,6 +265,12 @@ public class ShoeLocalServiceUtil {
 	 */
 	public static int getShoesCount() {
 		return getService().getShoesCount();
+	}
+
+	public static List<Shoe> getShoesSorted(
+		int start, int end, OrderByComparator<Shoe> obc) {
+
+		return getService().getShoesSorted(start, end, obc);
 	}
 
 	/**

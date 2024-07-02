@@ -36,12 +36,12 @@ public class ShoeWrapper
 		attributes.put("shoeId", getShoeId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("brandId", getBrandId());
-		attributes.put("typeId", getTypeId());
 		attributes.put("shoeModel", getShoeModel());
 		attributes.put("gender", getGender());
 		attributes.put("size", getSize());
 		attributes.put("price", getPrice());
+		attributes.put("brandId", getBrandId());
+		attributes.put("typeId", getTypeId());
 
 		return attributes;
 	}
@@ -72,18 +72,6 @@ public class ShoeWrapper
 			setModifiedDate(modifiedDate);
 		}
 
-		String brandId = (String)attributes.get("brandId");
-
-		if (brandId != null) {
-			setBrandId(brandId);
-		}
-
-		String typeId = (String)attributes.get("typeId");
-
-		if (typeId != null) {
-			setTypeId(typeId);
-		}
-
 		String shoeModel = (String)attributes.get("shoeModel");
 
 		if (shoeModel != null) {
@@ -107,11 +95,30 @@ public class ShoeWrapper
 		if (price != null) {
 			setPrice(price);
 		}
+
+		String brandId = (String)attributes.get("brandId");
+
+		if (brandId != null) {
+			setBrandId(brandId);
+		}
+
+		String typeId = (String)attributes.get("typeId");
+
+		if (typeId != null) {
+			setTypeId(typeId);
+		}
 	}
 
 	@Override
 	public Shoe cloneWithOriginalValues() {
 		return wrap(model.cloneWithOriginalValues());
+	}
+
+	@Override
+	public Brand getBrand()
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return model.getBrand();
 	}
 
 	/**
@@ -202,6 +209,13 @@ public class ShoeWrapper
 	@Override
 	public double getSize() {
 		return model.getSize();
+	}
+
+	@Override
+	public Type getType()
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return model.getType();
 	}
 
 	/**

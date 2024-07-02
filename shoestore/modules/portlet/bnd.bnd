@@ -1,4 +1,0 @@
-Bundle-Name: portlet
-Bundle-SymbolicName: com.liferay.shoestore.storeportlet
-Bundle-Version: 1.0.0
-Export-Package: com.liferay.shoestore.storeportlet.constants

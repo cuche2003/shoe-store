@@ -47,4 +47,10 @@ public interface Shoe extends PersistedModel, ShoeModel {
 
 		};
 
+	public Brand getBrand()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
+	public Type getType()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
 }
