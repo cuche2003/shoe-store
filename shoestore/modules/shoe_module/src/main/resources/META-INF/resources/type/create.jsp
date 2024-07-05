@@ -6,7 +6,7 @@
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
-<%@ include file="/brand/init.jsp" %>
+<%@ include file="/type/init.jsp" %>
 
 <portlet:actionURL name="TypeCreate" var="TypeCreateURL" />
 

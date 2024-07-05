@@ -1,0 +1,4 @@
+Bundle-Name: shoeportlet
+Bundle-SymbolicName: com.liferay.shoestore.portlet
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.shoestore.portlet.constants

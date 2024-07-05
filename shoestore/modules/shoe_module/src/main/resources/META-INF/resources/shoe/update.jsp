@@ -34,10 +34,10 @@
 			<aui:option value="${brand.getBrandId()}">${brand.getName()}</aui:option>
 		</c:forEach>
 	</aui:select>
-	<aui:select name="typeId" inlineField="${true}" value="${shoe.getTypeId()}" label="Brand">
+	<aui:select name="typeId" inlineField="${true}" value="${shoe.getTypeId()}" label="Type">
 		<aui:validator name="required"/>
 		<c:forEach items="${ types }" var="type">
-			<aui:option value="${brand.getTypeId()}">${type.getName()}</aui:option>
+			<aui:option value="${type.getTypeId()}">${type.getName()}</aui:option>
 		</c:forEach>
 	</aui:select>
 	<aui:input name="price" value="${shoe.getPrice()}" label="Price">

@@ -54,21 +54,17 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public static final String TABLE_NAME = "ShoeServiceBuilder_Shoe";
 
 	public static final Object[][] TABLE_COLUMNS = {
-		{"uuid_", Types.VARCHAR}, {"shoeId", Types.VARCHAR},
-		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
-		{"shoeModel", Types.VARCHAR}, {"gender", Types.VARCHAR},
-		{"size_", Types.DOUBLE}, {"price", Types.DOUBLE},
-		{"brandId", Types.VARCHAR}, {"typeId", Types.VARCHAR}
+		{"shoeId", Types.VARCHAR}, {"shoeModel", Types.VARCHAR},
+		{"gender", Types.VARCHAR}, {"size_", Types.DOUBLE},
+		{"price", Types.DOUBLE}, {"brandId", Types.VARCHAR},
+		{"typeId", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
 		new HashMap<String, Integer>();
 
 	static {
-		TABLE_COLUMNS_MAP.put("uuid_", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("shoeId", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("shoeModel", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("gender", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("size_", Types.DOUBLE);
@@ -78,7 +74,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table ShoeServiceBuilder_Shoe (uuid_ VARCHAR(75) null,shoeId VARCHAR(75) not null primary key,createDate DATE null,modifiedDate DATE null,shoeModel VARCHAR(75) null,gender VARCHAR(75) null,size_ DOUBLE,price DOUBLE,brandId VARCHAR(75) null,typeId VARCHAR(75) null)";
+		"create table ShoeServiceBuilder_Shoe (shoeId VARCHAR(75) not null primary key,shoeModel VARCHAR(75) null,gender VARCHAR(75) null,size_ DOUBLE,price DOUBLE,brandId VARCHAR(75) null,typeId VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table ShoeServiceBuilder_Shoe";
@@ -107,17 +103,11 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public static final long TYPEID_COLUMN_BITMASK = 2L;
 
 	/**
-	 * @deprecated As of Athanasius (7.3.x), replaced by {@link #getColumnBitmask(String)}
-	 */
-	@Deprecated
-	public static final long UUID_COLUMN_BITMASK = 4L;
-
-	/**
 	 * @deprecated As of Athanasius (7.3.x), replaced by {@link
 	 *		#getColumnBitmask(String)}
 	 */
 	@Deprecated
-	public static final long SHOEID_COLUMN_BITMASK = 8L;
+	public static final long SHOEID_COLUMN_BITMASK = 4L;
 
 	/**
 	 * @deprecated As of Athanasius (7.3.x), with no direct replacement
@@ -222,10 +212,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 			Map<String, Function<Shoe, Object>> attributeGetterFunctions =
 				new LinkedHashMap<String, Function<Shoe, Object>>();
 
-			attributeGetterFunctions.put("uuid", Shoe::getUuid);
 			attributeGetterFunctions.put("shoeId", Shoe::getShoeId);
-			attributeGetterFunctions.put("createDate", Shoe::getCreateDate);
-			attributeGetterFunctions.put("modifiedDate", Shoe::getModifiedDate);
 			attributeGetterFunctions.put("shoeModel", Shoe::getShoeModel);
 			attributeGetterFunctions.put("gender", Shoe::getGender);
 			attributeGetterFunctions.put("size", Shoe::getSize);
@@ -249,13 +236,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 				new LinkedHashMap<String, BiConsumer<Shoe, ?>>();
 
 			attributeSetterBiConsumers.put(
-				"uuid", (BiConsumer<Shoe, String>)Shoe::setUuid);
-			attributeSetterBiConsumers.put(
 				"shoeId", (BiConsumer<Shoe, String>)Shoe::setShoeId);
-			attributeSetterBiConsumers.put(
-				"createDate", (BiConsumer<Shoe, Date>)Shoe::setCreateDate);
-			attributeSetterBiConsumers.put(
-				"modifiedDate", (BiConsumer<Shoe, Date>)Shoe::setModifiedDate);
 			attributeSetterBiConsumers.put(
 				"shoeModel", (BiConsumer<Shoe, String>)Shoe::setShoeModel);
 			attributeSetterBiConsumers.put(
@@ -277,35 +258,6 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 
 	@JSON
 	@Override
-	public String getUuid() {
-		if (_uuid == null) {
-			return "";
-		}
-		else {
-			return _uuid;
-		}
-	}
-
-	@Override
-	public void setUuid(String uuid) {
-		if (_columnOriginalValues == Collections.EMPTY_MAP) {
-			_setColumnOriginalValues();
-		}
-
-		_uuid = uuid;
-	}
-
-	/**
-	 * @deprecated As of Athanasius (7.3.x), replaced by {@link
-	 *             #getColumnOriginalValue(String)}
-	 */
-	@Deprecated
-	public String getOriginalUuid() {
-		return getColumnOriginalValue("uuid_");
-	}
-
-	@JSON
-	@Override
 	public String getShoeId() {
 		if (_shoeId == null) {
 			return "";
@@ -322,42 +274,6 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 		}
 
 		_shoeId = shoeId;
-	}
-
-	@JSON
-	@Override
-	public Date getCreateDate() {
-		return _createDate;
-	}
-
-	@Override
-	public void setCreateDate(Date createDate) {
-		if (_columnOriginalValues == Collections.EMPTY_MAP) {
-			_setColumnOriginalValues();
-		}
-
-		_createDate = createDate;
-	}
-
-	@JSON
-	@Override
-	public Date getModifiedDate() {
-		return _modifiedDate;
-	}
-
-	public boolean hasSetModifiedDate() {
-		return _setModifiedDate;
-	}
-
-	@Override
-	public void setModifiedDate(Date modifiedDate) {
-		_setModifiedDate = true;
-
-		if (_columnOriginalValues == Collections.EMPTY_MAP) {
-			_setColumnOriginalValues();
-		}
-
-		_modifiedDate = modifiedDate;
 	}
 
 	@JSON
@@ -531,10 +447,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public Object clone() {
 		ShoeImpl shoeImpl = new ShoeImpl();
 
-		shoeImpl.setUuid(getUuid());
 		shoeImpl.setShoeId(getShoeId());
-		shoeImpl.setCreateDate(getCreateDate());
-		shoeImpl.setModifiedDate(getModifiedDate());
 		shoeImpl.setShoeModel(getShoeModel());
 		shoeImpl.setGender(getGender());
 		shoeImpl.setSize(getSize());
@@ -551,11 +464,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public Shoe cloneWithOriginalValues() {
 		ShoeImpl shoeImpl = new ShoeImpl();
 
-		shoeImpl.setUuid(this.<String>getColumnOriginalValue("uuid_"));
 		shoeImpl.setShoeId(this.<String>getColumnOriginalValue("shoeId"));
-		shoeImpl.setCreateDate(this.<Date>getColumnOriginalValue("createDate"));
-		shoeImpl.setModifiedDate(
-			this.<Date>getColumnOriginalValue("modifiedDate"));
 		shoeImpl.setShoeModel(this.<String>getColumnOriginalValue("shoeModel"));
 		shoeImpl.setGender(this.<String>getColumnOriginalValue("gender"));
 		shoeImpl.setSize(this.<Double>getColumnOriginalValue("size_"));
@@ -622,8 +531,6 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public void resetOriginalValues() {
 		_columnOriginalValues = Collections.emptyMap();
 
-		_setModifiedDate = false;
-
 		_columnBitmask = 0;
 	}
 
@@ -631,38 +538,12 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	public CacheModel<Shoe> toCacheModel() {
 		ShoeCacheModel shoeCacheModel = new ShoeCacheModel();
 
-		shoeCacheModel.uuid = getUuid();
-
-		String uuid = shoeCacheModel.uuid;
-
-		if ((uuid != null) && (uuid.length() == 0)) {
-			shoeCacheModel.uuid = null;
-		}
-
 		shoeCacheModel.shoeId = getShoeId();
 
 		String shoeId = shoeCacheModel.shoeId;
 
 		if ((shoeId != null) && (shoeId.length() == 0)) {
 			shoeCacheModel.shoeId = null;
-		}
-
-		Date createDate = getCreateDate();
-
-		if (createDate != null) {
-			shoeCacheModel.createDate = createDate.getTime();
-		}
-		else {
-			shoeCacheModel.createDate = Long.MIN_VALUE;
-		}
-
-		Date modifiedDate = getModifiedDate();
-
-		if (modifiedDate != null) {
-			shoeCacheModel.modifiedDate = modifiedDate.getTime();
-		}
-		else {
-			shoeCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
 		shoeCacheModel.shoeModel = getShoeModel();
@@ -761,11 +642,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 
 	}
 
-	private String _uuid;
 	private String _shoeId;
-	private Date _createDate;
-	private Date _modifiedDate;
-	private boolean _setModifiedDate;
 	private String _shoeModel;
 	private String _gender;
 	private double _size;
@@ -803,10 +680,7 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	private void _setColumnOriginalValues() {
 		_columnOriginalValues = new HashMap<String, Object>();
 
-		_columnOriginalValues.put("uuid_", _uuid);
 		_columnOriginalValues.put("shoeId", _shoeId);
-		_columnOriginalValues.put("createDate", _createDate);
-		_columnOriginalValues.put("modifiedDate", _modifiedDate);
 		_columnOriginalValues.put("shoeModel", _shoeModel);
 		_columnOriginalValues.put("gender", _gender);
 		_columnOriginalValues.put("size_", _size);
@@ -820,7 +694,6 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	static {
 		Map<String, String> attributeNames = new HashMap<>();
 
-		attributeNames.put("uuid_", "uuid");
 		attributeNames.put("size_", "size");
 
 		_attributeNames = Collections.unmodifiableMap(attributeNames);
@@ -837,25 +710,19 @@ public class ShoeModelImpl extends BaseModelImpl<Shoe> implements ShoeModel {
 	static {
 		Map<String, Long> columnBitmasks = new HashMap<>();
 
-		columnBitmasks.put("uuid_", 1L);
+		columnBitmasks.put("shoeId", 1L);
 
-		columnBitmasks.put("shoeId", 2L);
+		columnBitmasks.put("shoeModel", 2L);
 
-		columnBitmasks.put("createDate", 4L);
+		columnBitmasks.put("gender", 4L);
 
-		columnBitmasks.put("modifiedDate", 8L);
+		columnBitmasks.put("size_", 8L);
 
-		columnBitmasks.put("shoeModel", 16L);
+		columnBitmasks.put("price", 16L);
 
-		columnBitmasks.put("gender", 32L);
+		columnBitmasks.put("brandId", 32L);
 
-		columnBitmasks.put("size_", 64L);
-
-		columnBitmasks.put("price", 128L);
-
-		columnBitmasks.put("brandId", 256L);
-
-		columnBitmasks.put("typeId", 512L);
+		columnBitmasks.put("typeId", 64L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

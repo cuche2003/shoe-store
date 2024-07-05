@@ -4,7 +4,6 @@ import com.j2ee.test.shoemodule.constants.ShoeModulePortletKeys;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.servicebuilder.service.BrandService;
 import com.liferay.servicebuilder.service.ShoeService;
 
 import java.io.IOException;

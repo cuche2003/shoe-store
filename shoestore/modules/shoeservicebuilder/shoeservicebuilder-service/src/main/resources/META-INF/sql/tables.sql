@@ -4,10 +4,7 @@ create table ShoeServiceBuilder_Brand (
 );
 
 create table ShoeServiceBuilder_Shoe (
-	uuid_ VARCHAR(75) null,
 	shoeId VARCHAR(75) not null primary key,
-	createDate DATE null,
-	modifiedDate DATE null,
 	shoeModel VARCHAR(75) null,
 	gender VARCHAR(75) null,
 	size_ DOUBLE,

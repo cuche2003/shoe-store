@@ -3,19 +3,16 @@
 
 <service-builder dependency-injector="ds" package-path="com.liferay.servicebuilder">
 	<namespace>ShoeServiceBuilder</namespace>
-	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
-    <entity name="Brand" local-service="true">
+    <entity name="Brand" local-service="true" remote-service="true">
         <column name="brandId" type="String" primary="true"></column>
         <column name="name" type="String" primary="false"></column>
     </entity>
-    <entity name="Type" local-service="true">
+    <entity name="Type" local-service="true" remote-service="true">
         <column name="typeId" type="String" primary="true"></column>
         <column name="name" type="String" primary="false"></column>
     </entity>
-    <entity local-service="true" name="Shoe" remote-service="true" uuid="true">
+    <entity local-service="true" name="Shoe" remote-service="true">
         <column name="shoeId" primary="true" type="String"></column>
-        <column name="createDate" type="Date"></column>
-        <column name="modifiedDate" type="Date"></column>
         <column name="shoeModel" type="String"></column>
         <column name="gender" type="String"></column>
         <column name="size" type="double"></column>

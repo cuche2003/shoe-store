@@ -15,8 +15,6 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
-import java.util.Date;
-
 /**
  * The cache model class for representing Shoe in entity cache.
  *
@@ -51,16 +49,10 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(15);
 
-		sb.append("{uuid=");
-		sb.append(uuid);
-		sb.append(", shoeId=");
+		sb.append("{shoeId=");
 		sb.append(shoeId);
-		sb.append(", createDate=");
-		sb.append(createDate);
-		sb.append(", modifiedDate=");
-		sb.append(modifiedDate);
 		sb.append(", shoeModel=");
 		sb.append(shoeModel);
 		sb.append(", gender=");
@@ -82,32 +74,11 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 	public Shoe toEntityModel() {
 		ShoeImpl shoeImpl = new ShoeImpl();
 
-		if (uuid == null) {
-			shoeImpl.setUuid("");
-		}
-		else {
-			shoeImpl.setUuid(uuid);
-		}
-
 		if (shoeId == null) {
 			shoeImpl.setShoeId("");
 		}
 		else {
 			shoeImpl.setShoeId(shoeId);
-		}
-
-		if (createDate == Long.MIN_VALUE) {
-			shoeImpl.setCreateDate(null);
-		}
-		else {
-			shoeImpl.setCreateDate(new Date(createDate));
-		}
-
-		if (modifiedDate == Long.MIN_VALUE) {
-			shoeImpl.setModifiedDate(null);
-		}
-		else {
-			shoeImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
 		if (shoeModel == null) {
@@ -148,10 +119,7 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		uuid = objectInput.readUTF();
 		shoeId = objectInput.readUTF();
-		createDate = objectInput.readLong();
-		modifiedDate = objectInput.readLong();
 		shoeModel = objectInput.readUTF();
 		gender = objectInput.readUTF();
 
@@ -164,22 +132,12 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput) throws IOException {
-		if (uuid == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(uuid);
-		}
-
 		if (shoeId == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
 			objectOutput.writeUTF(shoeId);
 		}
-
-		objectOutput.writeLong(createDate);
-		objectOutput.writeLong(modifiedDate);
 
 		if (shoeModel == null) {
 			objectOutput.writeUTF("");
@@ -214,10 +172,7 @@ public class ShoeCacheModel implements CacheModel<Shoe>, Externalizable {
 		}
 	}
 
-	public String uuid;
 	public String shoeId;
-	public long createDate;
-	public long modifiedDate;
 	public String shoeModel;
 	public String gender;
 	public double size;

@@ -10,8 +10,6 @@ import com.liferay.petra.sql.dsl.base.BaseTable;
 
 import java.sql.Types;
 
-import java.util.Date;
-
 /**
  * The table class for the &quot;ShoeServiceBuilder_Shoe&quot; database table.
  *
@@ -23,14 +21,8 @@ public class ShoeTable extends BaseTable<ShoeTable> {
 
 	public static final ShoeTable INSTANCE = new ShoeTable();
 
-	public final Column<ShoeTable, String> uuid = createColumn(
-		"uuid_", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, String> shoeId = createColumn(
 		"shoeId", String.class, Types.VARCHAR, Column.FLAG_PRIMARY);
-	public final Column<ShoeTable, Date> createDate = createColumn(
-		"createDate", Date.class, Types.TIMESTAMP, Column.FLAG_DEFAULT);
-	public final Column<ShoeTable, Date> modifiedDate = createColumn(
-		"modifiedDate", Date.class, Types.TIMESTAMP, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, String> shoeModel = createColumn(
 		"shoeModel", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<ShoeTable, String> gender = createColumn(

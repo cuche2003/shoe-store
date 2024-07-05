@@ -8,7 +8,6 @@ package com.liferay.servicebuilder.model;
 import com.liferay.portal.kernel.model.ModelWrapper;
 import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,10 +31,7 @@ public class ShoeWrapper
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("uuid", getUuid());
 		attributes.put("shoeId", getShoeId());
-		attributes.put("createDate", getCreateDate());
-		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("shoeModel", getShoeModel());
 		attributes.put("gender", getGender());
 		attributes.put("size", getSize());
@@ -48,28 +44,10 @@ public class ShoeWrapper
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		String uuid = (String)attributes.get("uuid");
-
-		if (uuid != null) {
-			setUuid(uuid);
-		}
-
 		String shoeId = (String)attributes.get("shoeId");
 
 		if (shoeId != null) {
 			setShoeId(shoeId);
-		}
-
-		Date createDate = (Date)attributes.get("createDate");
-
-		if (createDate != null) {
-			setCreateDate(createDate);
-		}
-
-		Date modifiedDate = (Date)attributes.get("modifiedDate");
-
-		if (modifiedDate != null) {
-			setModifiedDate(modifiedDate);
 		}
 
 		String shoeModel = (String)attributes.get("shoeModel");
@@ -132,16 +110,6 @@ public class ShoeWrapper
 	}
 
 	/**
-	 * Returns the create date of this shoe.
-	 *
-	 * @return the create date of this shoe
-	 */
-	@Override
-	public Date getCreateDate() {
-		return model.getCreateDate();
-	}
-
-	/**
 	 * Returns the gender of this shoe.
 	 *
 	 * @return the gender of this shoe
@@ -149,16 +117,6 @@ public class ShoeWrapper
 	@Override
 	public String getGender() {
 		return model.getGender();
-	}
-
-	/**
-	 * Returns the modified date of this shoe.
-	 *
-	 * @return the modified date of this shoe
-	 */
-	@Override
-	public Date getModifiedDate() {
-		return model.getModifiedDate();
 	}
 
 	/**
@@ -228,16 +186,6 @@ public class ShoeWrapper
 		return model.getTypeId();
 	}
 
-	/**
-	 * Returns the uuid of this shoe.
-	 *
-	 * @return the uuid of this shoe
-	 */
-	@Override
-	public String getUuid() {
-		return model.getUuid();
-	}
-
 	@Override
 	public void persist() {
 		model.persist();
@@ -254,16 +202,6 @@ public class ShoeWrapper
 	}
 
 	/**
-	 * Sets the create date of this shoe.
-	 *
-	 * @param createDate the create date of this shoe
-	 */
-	@Override
-	public void setCreateDate(Date createDate) {
-		model.setCreateDate(createDate);
-	}
-
-	/**
 	 * Sets the gender of this shoe.
 	 *
 	 * @param gender the gender of this shoe
@@ -271,16 +209,6 @@ public class ShoeWrapper
 	@Override
 	public void setGender(String gender) {
 		model.setGender(gender);
-	}
-
-	/**
-	 * Sets the modified date of this shoe.
-	 *
-	 * @param modifiedDate the modified date of this shoe
-	 */
-	@Override
-	public void setModifiedDate(Date modifiedDate) {
-		model.setModifiedDate(modifiedDate);
 	}
 
 	/**
@@ -341,16 +269,6 @@ public class ShoeWrapper
 	@Override
 	public void setTypeId(String typeId) {
 		model.setTypeId(typeId);
-	}
-
-	/**
-	 * Sets the uuid of this shoe.
-	 *
-	 * @param uuid the uuid of this shoe
-	 */
-	@Override
-	public void setUuid(String uuid) {
-		model.setUuid(uuid);
 	}
 
 	@Override

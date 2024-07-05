@@ -8,8 +8,6 @@ package com.liferay.servicebuilder.model;
 import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.model.BaseModel;
 
-import java.util.Date;
-
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -47,21 +45,6 @@ public interface ShoeModel extends BaseModel<Shoe> {
 	public void setPrimaryKey(String primaryKey);
 
 	/**
-	 * Returns the uuid of this shoe.
-	 *
-	 * @return the uuid of this shoe
-	 */
-	@AutoEscape
-	public String getUuid();
-
-	/**
-	 * Sets the uuid of this shoe.
-	 *
-	 * @param uuid the uuid of this shoe
-	 */
-	public void setUuid(String uuid);
-
-	/**
 	 * Returns the shoe ID of this shoe.
 	 *
 	 * @return the shoe ID of this shoe
@@ -75,34 +58,6 @@ public interface ShoeModel extends BaseModel<Shoe> {
 	 * @param shoeId the shoe ID of this shoe
 	 */
 	public void setShoeId(String shoeId);
-
-	/**
-	 * Returns the create date of this shoe.
-	 *
-	 * @return the create date of this shoe
-	 */
-	public Date getCreateDate();
-
-	/**
-	 * Sets the create date of this shoe.
-	 *
-	 * @param createDate the create date of this shoe
-	 */
-	public void setCreateDate(Date createDate);
-
-	/**
-	 * Returns the modified date of this shoe.
-	 *
-	 * @return the modified date of this shoe
-	 */
-	public Date getModifiedDate();
-
-	/**
-	 * Sets the modified date of this shoe.
-	 *
-	 * @param modifiedDate the modified date of this shoe
-	 */
-	public void setModifiedDate(Date modifiedDate);
 
 	/**
 	 * Returns the shoe model of this shoe.

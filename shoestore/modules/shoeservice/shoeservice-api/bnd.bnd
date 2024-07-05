@@ -1,0 +1,10 @@
+Bundle-Name: shoeservice-api
+Bundle-SymbolicName: com.liferay.shoestore.shoeservice.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.shoestore.shoeservice.exception,\
+	com.liferay.shoestore.shoeservice.model,\
+	com.liferay.shoestore.shoeservice.service,\
+	com.liferay.shoestore.shoeservice.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../shoeservice-service/service.xml

@@ -5,8 +5,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.servicebuilder.model.Brand;
+import com.liferay.servicebuilder.model.Type;
 import com.liferay.servicebuilder.service.BrandService;
 import com.liferay.servicebuilder.service.ShoeService;
+import com.liferay.servicebuilder.service.TypeService;
 
 import java.util.List;
 
@@ -33,8 +35,13 @@ public class ShoeUpdateRenderMvcCommand implements MVCRenderCommand {
 		if (!shoeId.isEmpty()) {
 			try {
 				renderRequest.setAttribute("shoe", _shoeService.getShoeById(shoeId));
+				
 				List<Brand> brands = _brandService.getBrands(0, _brandService.getBrandsCount());
 				renderRequest.setAttribute("brands", brands);
+				
+				List<Type> types = _typeService.getTypes(0, _typeService.getTypesCount());
+				renderRequest.setAttribute("types", types);
+				
 			} catch (PortalException e) {
 				e.printStackTrace();
 			}
@@ -54,4 +61,11 @@ public class ShoeUpdateRenderMvcCommand implements MVCRenderCommand {
 	protected void setBrandService(BrandService brandService) {
 		_brandService = brandService;
 	}
+	
+	private TypeService _typeService;
+	@Reference(unbind = "-")
+	protected void setTypeService(TypeService typeService) {
+		_typeService = typeService;
+	}
+	
 }

@@ -5,10 +5,8 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.servicebuilder.model.Brand;
 import com.liferay.servicebuilder.model.Type;
 import com.liferay.servicebuilder.service.BrandService;
-import com.liferay.servicebuilder.service.ShoeService;
 import com.liferay.servicebuilder.service.TypeService;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.portlet.PortletException;
@@ -38,18 +36,12 @@ public class ShoeCreateRenderMvcCommand implements MVCRenderCommand {
 		return "/shoe/create.jsp";
 	}
 	
-	private ShoeService _shoeService;
 	private BrandService _brandService;
 	private TypeService _typeService;
 	
 	@Reference(unbind = "-")
 	protected void setTypeService(TypeService typeService) {
 		_typeService = typeService;
-	}
-	
-	@Reference(unbind = "-")
-	protected void setShoeService(ShoeService shoeService) {
-		_shoeService = shoeService;
 	}
 	
 	@Reference(unbind = "-")
